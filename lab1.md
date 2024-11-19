@@ -414,5 +414,9 @@ BankService: Xử lý giao dịch ngân hàng cho các thanh toán chuyển kho�
 
 MailService: Gửi phiếu lương qua đường bưu điện cho nhân viên.
 
+--Kết luận:
+
+_Quá trình hợp nhất phân tích giúp tạo ra một mô hình tổng quát, dễ dàng mở rộng và tái sử dụng các thành phần. Từ đây, đội phát triển có thể triển khai kiến trúc hệ thống một cách đồng nhất và tối ưu.
+
 
 
