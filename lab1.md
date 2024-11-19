@@ -354,3 +354,65 @@ TimecardManager xác thực thông tin mã dự án qua ProjectManagementDatabas
 -TimeEntry là thành phần nhỏ của Timecard, chi tiết hóa dữ liệu từng ngày.
 
 -PayrollDatabase và ProjectManagementDatabase đóng vai trò hỗ trợ lưu trữ và xác thực
+
+V. Hợp nhất kết quả phân tích:
+
+--Hệ thống đang được phân tích nhằm giải quyết hai ca sử dụng chính:
+
+-Payment: Xử lý thanh toán lương cho nhân viên dựa trên thông tin làm việc và phương thức thanh toán.
+
+-Maintain Timecard: Quản lý thông tin giờ làm việc (timecard) của nhân viên, bao gồm thêm mới, chỉnh sửa, và gửi timecard.
+
+2. Các lớp phân tích:
+--Dưới đây là danh sách các lớp phân tích chung cho cả hai ca sử dụng:
+
+Employee: Đại diện thông tin nhân viên, tham gia cả quá trình duy trì timecard và nhận thanh toán lương.
+
+Timecard: Lưu trữ thông tin giờ làm việc, cần thiết để tính toán lương.
+
+TimeEntry: Mỗi mục giờ làm việc của một ngày trong timecard.
+
+PaymentProcessor: Điều phối quá trình thanh toán, sử dụng thông tin từ timecard và phương thức thanh toán.
+
+TimecardManager: Điều phối quá trình duy trì timecard, xác thực mã dự án và lưu thông tin.
+
+PayrollDatabase: Lưu trữ và truy xuất dữ liệu nhân viên, timecard, và thông tin lương.
+
+ProjectManagementDatabase:	Hỗ trợ xác thực mã dự án khi thêm giờ làm việc.
+
+PaymentMethod: Xác định phương thức thanh toán như chuyển khoản, gửi thư, hoặc nhận trực tiếp.
+
+BankService: Xử lý giao dịch chuyển khoản ngân hàng.
+
+MailService: Xử lý việc gửi phiếu lương qua thư.
+
+--Biểu đồ hợp nhất:
+![Diagram](https://www.planttext.com/api/plantuml/png/d5LBRjim4Dth58HNBk1SG2YCe6aM1UeYG7A14JcmMVCZa9G1e-Z9kkYHUeMEA5AYh0X1ueLjaM-6RzwyeVxz-Nll0xZGQLLn1TwpHzqgUqLalof67obgzXoSDCVuQ43ZRA65gqOJ3XXEbg1FvMC4S52yKn2GjhQ2VclsbRu_rKpOhb4OGKSCBr8Z1oVy7FHT-l0vx-shtrMYcPSIpIacFX859z4NuO-qSjt7JIeuT7vM1GWH0SNPEtQodIEOD677-0dS4Nzqka6N8udTnSgXIcNvELFQveqPsPZ_TRRJGODYhvmrvKeAFpdBqNlhKahN6TfnLgcvVaiYFSK363XYZhKjcf4yflv_6nk_OxEC6Pc56ulxi7Y-QxGCw_AbmYWnDE2pCyapsQl-nIxS5JkV0QdnSC7nb93-J0MLb0f3laEHYR6pFv67GUQ-NJVSBw1ad-AXK6Qx8bDZhK8m2mSCCvOIXcjxCvU3Fn9s2zfs9kIPMoZy1Spv6Tr5yipm9ZvhK8_tmuwzaVC0KirpUZJYuOJy_BvquurqTxUVvhvc6ntbzPjgNCo8OTW8mgq980rX5dFJOyVK14qLe-_ljDvlAp6bLbCO4z9Hnvd0rdePLc9BJIYs5yJJU90aHHLvEDyijmJUpWZXWQTwm8Ze_RNGLRDIaknKdwQOcUZFJNLFtFktndy0003__mC0)
+
+--Biểu đồ Sequence: Quy trình duy trì Timecard và Thanh toán:
+![Diagram](https://www.planttext.com/api/plantuml/png/b9HHZjem48RVVOeHJwp4NY0ggnM4XvLAXLekC3XJS77io7PGELiVUgHUeNRia9ZDKXKfA7O-_pF-P-m_ltw_MeV6jRLao9qsiAaRgQz4hF7JWei6bOFPNjJ4qLHRL7WaCmEqaDvpS8VNcfJR6St9MXt9s-WTQxIK9JeyeAKEBLVJWRkF-_MTWD4_YBkOI0YRIUsszs8hLETlP2w2HoACSsABGew9C6PikGmlola7-eHWkMIzL_3yqhjHW6v8zT2S4l5MBQ12HqyiSM59kIhWIEu1ZD8D0UcdiCuoyBzo1S_Zc3t3I5eQLbIQB2Zjuj9kvIZyVbq0D-G3tJA8KJCkvMdnCc3xzHCZLR5f0x2g0hbHpbmxnGMST6li0lW9pP6-jFM1JEP4A5K15vGYyEiHDi_N133VUbeajFfAjfMky-n-4eIDSrCU-7p_cMldwvIgK9EwlJ45LC8s4gyROxIPpzuY3d6B4ELdZzoqxQ4MGuzajeNifURdgQyVrIqqSpgaeOLlHtFKa7qUTgyzcPeY-NxZ2_ZiU-fJpxumgNK3txqG8JyDrqWm9WioMCDHybPwzI7A0zedblBUaZlfiDb0Xt9dyw4gfJ3-NYYfqLR4ldyd7Cv-0KsSIWAt4xW0h7MhN0pH5VzTZEvgc9GENxpplgRh4_7pVwdk13-tpRJkoFiZAJBHEPx5IDg-dSBpwl_2rVuN003__mC0)
+
+--Mô tả quan hệ và nhiệm vụ của các lớp:
+
+Employee: Quản lý thông tin nhân viên, liên kết timecard và tham gia tính toán lương.
+
+Timecard: Lưu trữ giờ làm việc của nhân viên, trạng thái, và thông tin mã dự án.
+
+TimeEntry: Đại diện cho từng mục giờ làm việc trong một ngày cụ thể.
+
+TimecardManager: Điều phối thêm, chỉnh sửa, gửi timecard.
+
+PaymentProcessor: Điều phối quá trình thanh toán lương dựa trên timecard và phương thức thanh toán.
+
+PayrollDatabase: Lưu trữ dữ liệu timecard và thanh toán lương, truy xuất thông tin cần thiết.
+
+ProjectManagementDatabase: Xác thực tính hợp lệ của mã dự án khi thêm giờ làm việc.
+
+PaymentMethod: Xác định cách nhân viên nhận lương (chuyển khoản, thư, trực tiếp).
+
+BankService: Xử lý giao dịch ngân hàng cho các thanh toán chuyển khoản.
+
+MailService: Gửi phiếu lương qua đường bưu điện cho nhân viên.
+
+
+
