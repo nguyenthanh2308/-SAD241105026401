@@ -1,3 +1,5 @@
+!java
+    {
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,6 +130,9 @@ public class MaintainTimecard {
 
         // Submit the timecard
         timecard.submit();
+    }
+}
+}
 
         // Attempt to add another entry after submission
         timecard.addEntry("2024-11-20", 8, "CH003");
