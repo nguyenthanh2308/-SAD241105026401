@@ -42,20 +42,77 @@
 
 I. Mô tả tóm tắt bài toán:  
 * Sự cần thiết và lợi ích:  
-- Đảm bảo quản lý hồ sơ chính xác, giảm thiểu sai sót, và tuân thủ luật pháp như Mental Health Act​  
-- Tăng cường khả năng tạo báo cáo quản lý, cảnh báo y tế và hỗ trợ ra quyết định​  
+- Đảm bảo quản lý hồ sơ chính xác, giảm thiểu sai sót, và tuân thủ luật pháp như Mental Health Act​ (1)  
+- Tăng cường khả năng tạo báo cáo quản lý, cảnh báo y tế và hỗ trợ ra quyết định​ (2)  (3 trang 30)      
 
 ​* Các yêu cầu chức năng:  
- - Quản lý hồ sơ bệnh nhân, bao gồm thông tin cá nhân, chẩn đoán, và thuốc kê đơn​  
- - Cảnh báo nguy cơ tự hại hoặc bạo lực dựa trên hồ sơ y tế​  
- - ích hợp hệ thống lịch hẹn (APPOINTMENTS) và quản lý giam giữ bệnh nhân  
+ - Quản lý hồ sơ bệnh nhân, bao gồm thông tin cá nhân, chẩn đoán, và thuốc kê đơn​ (2)  
+ - Cảnh báo nguy cơ tự hại hoặc bạo lực dựa trên hồ sơ y tế​  (1)
+ - ích hợp hệ thống lịch hẹn (APPOINTMENTS) và quản lý giam giữ bệnh nhân (3 trang 30)  
 * Các yêu cầu phi chức năng:  
-- Giao diện dễ sử dụng, phản hồi nhanh (<2 giây)​  
-- Bảo mật và quyền riêng tư nghiêm ngặt theo tiêu chuẩn y tế  
+- Giao diện dễ sử dụng, phản hồi nhanh (<2 giây)​ (2)
+- Bảo mật và quyền riêng tư nghiêm ngặt theo tiêu chuẩn y tế (1)  
+
+*Chú thích:  
+(1) https://software-engineering-book.com/case-studies/mentcare/  
+(2) https://github.com/opendesigncasestudies/Mentcare-IanSommerville  
+(3) https://fr.slideshare.net/slideshow/se-chapter-4-software-requirementspptx/266205338
+   
+II. Phân tích các ca sử dụng:  
+Kiến trúc đề xuất:  
+Mô hình Client-Server, máy chủ chạy trên hệ điều hành Windows với giao diện trình duyệt. Máy chủ có thể sử dụng IIS (Internet Information Services) để quản lý các ứng dụng web, đảm bảo hiệu suất và khả năng bảo mật tốt trong môi trường Windows.  
+Các hệ thống tích hợp:  
+Xác thực đa yếu tố (Single Sign-On).  
+Hệ thống kê đơn thuốc (PRESCRIPTION).  
+
+Kết quả phân tích các ca sử dụng:  
+Ca 1: Quản lý hồ sơ bệnh nhân:  
+[!Diagram](https://www.planttext.com/plantuml/png/JCun2eCm5CRnFQTuP7VG0nGXInT16fpbDNcMG9gKlEVWsJhqIBr2KPIw_OSV7z_t_MbPiCZyZ0gTv0BQn922mmXMS9eq88EnIirC3fb0TvZmGT2Z14e2DtAvUDxSKF_PyF8e11tvRUmQM79PTZQUO5-8NGdtmqh8wM2DKiP2LLtMwQ7UQpnterfAVlt_0m00__y30000)
 
 
-   
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
