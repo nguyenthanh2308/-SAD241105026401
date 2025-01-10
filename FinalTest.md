@@ -57,6 +57,8 @@ I. Mô tả tóm tắt bài toán:
 (1) https://software-engineering-book.com/case-studies/mentcare/  
 (2) https://github.com/opendesigncasestudies/Mentcare-IanSommerville  
 (3) https://fr.slideshare.net/slideshow/se-chapter-4-software-requirementspptx/266205338
+(4) https://fossvjcet.github.io/CS-S5/CST309%20-%20Management%20of%20Software%20Systems/Other%20Notes/Module%202.2.pdf  
+(5) https://www.nngroup.com/articles/ten-usability-heuristics/
    
 II. Phân tích các ca sử dụng:  
 Kiến trúc đề xuất:  
